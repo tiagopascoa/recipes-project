@@ -5,6 +5,10 @@ const recipeSchema = new Schema({
         type: String,
         required: true,
     },
+    category:{
+        type: String,
+        required: true,
+    },
     dificulty: {
         type: String,
         required: true,
