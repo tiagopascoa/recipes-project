@@ -1,12 +1,11 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.navbar{
+  background-color: green;
 }
 
-a {
-  color: #00b7ff;
+.navbar a{
+  color: white;
 }
 
-h1 {
-  color: 15px;
+.navbar-nav > li > .dropdown-menu {
+  background-color: green 
 }
