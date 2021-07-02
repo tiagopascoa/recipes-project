@@ -6,9 +6,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>{{title}}</title>
-      {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -20,14 +19,15 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    --}}
-   {{!-- <link rel="stylesheet" href="../public/stylesheets/style.css" /> --}}
+   <link rel="stylesheet" href="stylesheets/style.css" />
    
    </head>
 
    <body>
       <nav class="navbar navbar-expand-lg ">
-        <a class="navbar-brand" href="#">
+        
+        <a class="navbar-brand" href="/">
+            <img src="/images/fork&Knife-white-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
             OUR RECIPES
         </a>
         <button class="navbar-toggler navbar-light bg-light " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -59,16 +59,30 @@
                 </li>
             </ul>
             <ul class="navbar-nav navbar-right">
+               {{#if loggedInUser}}
+                  <li class="nav-item">
+                    <a class="nav-link mr-4" href="/user-area">{{loggedInUser}}</a>
+                  </li>
+               {{else}}
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#">Login</a>
+                    <a class="nav-link mr-4" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Signup</a>
+                    <a class="nav-link" href="/signup">Signup</a>
                 </li>
+                {{/if}}
+                {{#if loggedInUser}}
+                <li class="nav-item">
+                     <form action="/logout" method="POST">
+                        <button class="nav-link" type="submit">Logout</button>
+                     </form>
+                </li>
+                {{/if}}
             </ul>
 
         </div>
     </nav>
+
 
       {{{body}}}
 

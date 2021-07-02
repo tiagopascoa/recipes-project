@@ -17,32 +17,35 @@ router.post("/signup", fileUpload.single("image"),  async (req, res) => {
   const { username, email, password } = req.body;
   console.log(username, email, password);
 
-  /* //check if username and password are filled in
+  //check if username and password are filled in
   if (username === "" || password === "") {
     res.render("auth/signup", { errorMessage: "Fill username and password" });
     return;
   }
-  const myRegex = /(?=.*\d).{6,}/;
+
+  const myRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
   if (myRegex.test(password) === false) {
     res.render("auth/signup", {
       errorMessage: "Password is too weak",
     });
     return;
   }
+
   //check if username already exists
   const user = await User.findOne({ username });
   if (user !== null) {
     res.render("auth/signup", { errorMessage: "Username already exists" });
     return;
   }
+
   const saltRounds = 10;
   const salt = bcrypt.genSaltSync(saltRounds);
-  const hashedPassword = bcrypt.hashSync(password, salt); */
+  const hashedPassword = bcrypt.hashSync(password, salt);
  
   await User.create({
     username,
     email,
-    password,
+    password: hashedPassword,
     imageUrl: fileUrlOnCloudinary
   });
 
@@ -50,15 +53,16 @@ router.post("/signup", fileUpload.single("image"),  async (req, res) => {
 
 });
 
-/* router.get("/login", (req, res) => {
+router.get("/login", (req, res) => {
   res.render("auth/login");
 });
 
 router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+  
+    const { username, password } = req.body;
 
   //check if username and password are filled in
-  if (!username || !password) {
+  if (username === "" || password === "") {
     res.render("auth/login", {
       errorMessage: "Fill username and password",
     });
@@ -67,6 +71,7 @@ router.post("/login", async (req, res) => {
 
   //check if user already exists
   const user = await User.findOne({ username });
+
   if (!user) {
     //if the user does not exists
     res.render("auth/login", {
@@ -79,20 +84,21 @@ router.post("/login", async (req, res) => {
   if (bcrypt.compareSync(password, user.password)) {
     //password match
     //initializing the session with the current user
-    req.session.currentUser = user;
+    req.session.currentUser = user; 
 
-    res.redirect("/");
+    res.redirect("/user-area");
   } else {
     //password don't match
     res.render("auth/login", {
-      errorMessage: "Invalid Login",
+      errorMessage: "password don't match",
     });
   }
+  
 });
 
 router.post("/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/");
-}); */
+});
 
 module.exports = router;

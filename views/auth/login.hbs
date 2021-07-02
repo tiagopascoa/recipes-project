@@ -1,0 +1,25 @@
+<h2>Login</h2>
+
+<form action="/login" method="POST">
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Username</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="username" required>
+    </div>
+{{!--     <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Email</label>
+        <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="" name="email" required>
+    </div> --}}
+    <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Password</label>
+        <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="" name="password" required> 
+    <div class="control-group">
+      <!-- Button -->
+        <div class="controls">
+        <button class="btn btn-success" type="submit">Login</button>
+    </div>
+</div>
+</form>
+
+{{#if errorMessage}}
+<p>{{errorMessage}}</p>
+{{/if}}
