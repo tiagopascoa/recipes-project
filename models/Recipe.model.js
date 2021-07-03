@@ -13,7 +13,7 @@ const recipeSchema = new Schema({
         type: String,
         required: true,
     },
-    time: {
+    totaltime: {
         type: Number,
         required: true,
     },
@@ -24,7 +24,7 @@ const recipeSchema = new Schema({
         type: String,
         required: true,
     },
-    Ingredients: {
+    ingredients: {
         name: {
             type:String,
             required: true,
@@ -42,6 +42,7 @@ const recipeSchema = new Schema({
         type: String,
         default: "/images/fork&knife-icon.png"
     },
-    timestamps: true,
-
 });
+
+const Recipe = model("Recipe", recipeSchema);
+module.exports = Recipe;

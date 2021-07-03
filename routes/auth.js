@@ -49,7 +49,7 @@ router.post("/signup", fileUpload.single("image"),  async (req, res) => {
     imageUrl: fileUrlOnCloudinary
   });
 
-  res.redirect("/");
+  res.redirect("user-area");
 
 });
 
@@ -86,7 +86,7 @@ router.post("/login", async (req, res) => {
     //initializing the session with the current user
     req.session.currentUser = user; 
 
-    res.redirect("/user-area");
+    res.redirect("/");
   } else {
     //password don't match
     res.render("auth/login", {

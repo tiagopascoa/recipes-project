@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h2>New Recipe</h2>
+
+      <form action="/new-recipe" method="POST">
+        {{! enctype="multipart/form-data" }}
+        <div class="mb-3">
+          <label for="" class="form-label">Recipe name</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="title" required/>
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Dificulty</label>
+          <div>
+          <select name="dificulty" id="cars">
+            <option value="hard">Hard</option>
+            <option value="medium">Medium</option>
+            <option value="easy">Easy</option>
+          </select>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Category</label>
+          <div>
+            <input type="radio" id="category1" name="category" value="desert" />
+            <label for="category1">Desert</label>
+
+            <input type="radio" id="category2" name="category" value="fish" />
+            <label for="category2">Fish</label>
+
+            <input type="radio" id="category3" name="category" value="meat" />
+            <label for="category3">Meat</label>
+
+            <input type="radio" id="category4" name="category" value="vegetarian" />
+            <label for="category3">Vegetarian</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Total time (minutes)</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="title" style="width:50%" required/>
+        </div>
+
+        <div class="control-group">
+          <!-- Button -->
+          <div class="controls">
+            <button class="btn btn-success" type="submit">Add Recipe</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="col-md-2"></div>
+
+  </div>
+</div>
