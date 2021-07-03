@@ -27,7 +27,8 @@
       <nav class="navbar navbar-expand-lg ">
         
         <a class="navbar-brand" href="/">
-            <img src="/images/fork&Knife-white-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        
+            {{!-- <img src="/images/fork&Knife-white-icon.png" width="30" height="30" class="d-inline-block " alt=""> --}}
             OUR RECIPES
         </a>
         <button class="navbar-toggler navbar-light bg-light " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -51,10 +52,10 @@
                         Recipes Categories
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Deserts</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-ice-cream mr-2"></i>Deserts</a>
                         <a class="dropdown-item" href="#"><i class="fas fa-fish mr-2"></i>Fish</a>
-                        <a class="dropdown-item" href="#">Meat</a>
-                        <a class="dropdown-item" href="#">Vegetarian</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-drumstick-bite mr-2"></i>Meat</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-leaf mr-2"></i>Vegetarian</a>
                     </div>
                 </li>
             </ul>
@@ -74,7 +75,7 @@
                 {{#if loggedInUser}}
                 <li class="nav-item">
                      <form action="/logout" method="POST">
-                        <button class="nav-link" type="submit">Logout</button>
+                        <button class="nav-link logout-btn" type="submit">Logout</button>
                      </form>
                 </li>
                 {{/if}}

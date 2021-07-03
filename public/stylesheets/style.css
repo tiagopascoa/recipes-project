@@ -9,3 +9,19 @@
 .navbar-nav > li > .dropdown-menu {
   background-color: green 
 }
+
+.logout-btn{
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn{
+  color: white !important;
+}
+
+.btn:hover {
+  color: black !important;
+  background-color: white;
+}
