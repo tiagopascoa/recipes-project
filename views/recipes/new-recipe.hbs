@@ -1,15 +1,19 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <h2>New Recipe</h2>
 
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <h2 class="d-flex justify-content-center my-2">New Recipe</h2>
       <form action="/new-recipe" method="POST">
         {{! enctype="multipart/form-data" }}
         <div class="mb-3">
           <label for="" class="form-label">Recipe name</label>
           <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="title" required/>
         </div>
+        
+        <div class="mb-3">
+          <label for="" class="form-label">Image (optional)</label>
+          <input type="file" class="form-control" id="" placeholder="" name="image">
+        </div>        
 
         <div class="mb-3">
           <label for="" class="form-label">Dificulty</label>
@@ -53,7 +57,5 @@
       </form>
 
     </div>
-    <div class="col-md-2"></div>
-
   </div>
 </div>

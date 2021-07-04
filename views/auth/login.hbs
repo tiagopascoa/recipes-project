@@ -1,8 +1,7 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <h2>Login</h2>
+    <div class="col-md-4 mx-auto">
+      <h2 class="d-flex justify-content-center my-2">Login</h2>
       <form action="/login" method="POST">
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Username</label>
@@ -14,8 +13,8 @@
         </div>
         <div class="control-group">
           <!-- Button -->
-          <div class="controls">
-            <button class="btn btn-success" type="submit">Login</button>
+          <div class="controls ">
+            <button class="btn btn-success " type="submit">Login</button>
           </div>
         </div>
       </form>
@@ -23,7 +22,7 @@
       {{#if errorMessage}}
         <p>{{errorMessage}}</p>
       {{/if}}
+
     </div>
-    <div class="col-md-4"></div>
   </div>
 </div>  

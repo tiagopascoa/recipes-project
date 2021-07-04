@@ -1,3 +1,5 @@
+/* Navbar */
+
 .navbar{
   background-color: green;
 }
@@ -10,18 +12,28 @@
   background-color: green 
 }
 
-.logout-btn{
-  background-color: green;
-  color: white;
-  border: none;
-  cursor: pointer;
+.navbar-nav > li > a:focus, a:hover {
+  color: black !important; 
 }
 
-.btn{
+.logout-btn{
+  all: unset;
+  color: white;
+}
+
+.logout-btn:hover {
+  color: black;
+}
+
+.search-btn{
   color: white !important;
 }
 
-.btn:hover {
+.search-btn:hover {
   color: black !important;
   background-color: white;
+}
+
+.teste{
+  background-color: gray;
 }
