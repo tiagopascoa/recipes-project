@@ -69,6 +69,12 @@ router.post("/preparation/:recipeId/update", async (req, res) => {
 });
 
 
+router.get("/user-favorite-list", (req, res) => {
+    res.render("users/user-favorite-list");
+});
+router.get("/user-recipes-list", (req, res) => {
+    res.render("users/user-recipes-list");
+});
 
 
 

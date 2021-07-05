@@ -1,1 +1,89 @@
-<h2>USer area</h2>
+<div class="container-fluid">
+    <div class="row">
+        <h2 class="d-flex justify-content-center my-2">User area</h2>
+        <div class="col-md-4">
+            <div class="card">
+                <h3 class="card-title text-center">My Profile</h3>
+                <img src="{{imageUrl}}" alt="user profile image" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{loggedInUser}}</h5>
+                    <p class="card-title">{{email}}</p>
+                    <div class="card-btns">
+                        <div class="btn btn-secondary">
+                            <a style="color: azure; " href="/user-profile">Edit Profile</a>
+                        </div>
+                        {{!-- <div <form action="/drones/{{_id}}/delete" method="POST">
+                            <button class="delete-btn" type="submit" onclick="alertFunction()">Delete</button>
+                            </form>
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <h3 class="card-title text-center">Favortite Recipes</h3>
+                <img src="{{imageUrl}}" alt="user profile image" />
+                <div class="card-body text-center">
+                    <ul>
+                        <li>
+                            <a href=""><i class="fas fa-heart me-2"></i>Some recipe title to go here</a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fas fa-heart me-2"></i>Some recipe title to go here</a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fas fa-heart me-2"></i>Some recipe title to go here</a>
+                        </li>
+                    </ul>
+                    <div class="card-btns">
+                        <div class="btn btn-secondary">
+                            <a style="color: azure; " href="/user-favorite-list">Look for favorites</a>
+                        </div>
+                        {{!-- <div <form action="/drones/{{_id}}/delete" method="POST">
+                            <button class="delete-btn" type="submit" onclick="alertFunction()">Delete</button>
+                            </form>
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <h3 class="card-title text-center">My Own Recipes</h3>
+                <img src="{{imageUrl}}" alt="user profile image" />
+                <div class="card-body text-center">
+                    <ul>
+                        <li>
+                            <a href=""><i class="fas fa-check me-2"></i>Some recipe title to go here</a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fas fa-check me-2"></i>Some recipe title to go here</a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fas fa-check me-2"></i>Some recipe title to go here</a>
+                        </li>
+                    </ul>
+                    <div class="card-btns">
+                        <div class="btn btn-secondary">
+                            <a style="color: azure; " href="/user-recipes-list">Add more Recipes</a>
+                        </div>
+                        {{!-- <div <form action="/drones/{{_id}}/delete" method="POST">
+                            <button class="delete-btn" type="submit" onclick="alertFunction()">Delete</button>
+                            </form>
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!--
+<ul>
+    <li>{{username}}</li>
+    <li>
+        <div class="user-img">
+            <img src="{{imageUrl}}" alt="" />
+        </div>
+    </li>
+</ul> --}}

@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h2>{{loggedInUser}} Favorite Recipes</h2>
+      <div class="mb-3">
+          <form action="" method="POST">
+            <img src="../../public/images/fork&knife-icon.png" alt="recipe picture">
+            <ul>
+                <li>                    
+                    <a href=""><i class="fas fa-heart me-2"></i>Some recipe title to go here</a>
+                    <button class="btn btn-secondary" type="submit">See Recipe details</button>
+                </li>
+            </ul>  
+            </form>           
+        </div>  
+        <div class="mb-3">
+            <img src="../../public/images/fork&knife-icon.png" alt="recipe picture">
+            <ul>
+                <li>                    
+                    <a href=""><i class="fas fa-heart me-2"></i>Some recipe title to go here</a>
+                    <button class="btn btn-secondary" type="submit">See Recipe details</button>
+                </li>
+            </ul>           
+        </div>
+        <div class="mb-3">
+            <img src="../../public/images/fork&knife-icon.png" alt="recipe picture">
+            <ul>
+                <li>                    
+                    <a href=""><i class="fas fa-heart me-2"></i>Some recipe title to go here</a>
+                    <button class="btn btn-secondary" type="submit">See Recipe details</button>
+                </li>
+            </ul>            
+        </div>
+        <div class="mb-3">
+            <img src="../../public/images/fork&knife-icon.png" alt="recipe picture">
+            <ul>
+                <li>                    
+                    <a href=""><i class="fas fa-heart me-2"></i>Some recipe title to go here</a>
+                    <button class="btn btn-secondary" type="submit">See Recipe details</button>
+                </li>
+            </ul>           
+        </div>
+    </div>
+      {{#if errorMessage}}
+      <p>{{errorMessage}}</p>
+      {{/if}}
+  <div class="col-md-4"></div>
+</div>
