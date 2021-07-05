@@ -3,8 +3,7 @@
   <div class="row">
     <div class="col-md-4 mx-auto">
       <h2 class="d-flex justify-content-center my-2">New Recipe</h2>
-      <form action="/new-recipe" method="POST">
-        {{! enctype="multipart/form-data" }}
+      <form action="/new-recipe" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
           <label for="" class="form-label">Recipe name</label>
           <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="title" required/>
@@ -18,7 +17,7 @@
         <div class="mb-3">
           <label for="" class="form-label">Dificulty</label>
           <div>
-          <select name="dificulty" id="cars">
+          <select name="dificulty" id="">
             <option value="hard">Hard</option>
             <option value="medium">Medium</option>
             <option value="easy">Easy</option>
@@ -45,14 +44,12 @@
 
         <div class="mb-3">
           <label for="" class="form-label">Total time (minutes)</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="title" style="width:50%" required/>
+          <input type="text" class="form-control" name="time" style="width:50%" required/>
         </div>
 
         <div class="control-group">
           <!-- Button -->
-          <div class="controls">
-            <button class="btn btn-success" type="submit">Add Recipe</button>
-          </div>
+            <button class="btn btn-success" type="submit">Add Ingredients</button>
         </div>
       </form>
 

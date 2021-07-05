@@ -13,36 +13,43 @@ const recipeSchema = new Schema({
         type: String,
         required: true,
     },
-    totaltime: {
+    time: {
         type: Number,
         required: true,
     },
     rating: {
         type: Number,
     },
-    description: {
+    preparation: {
         type: String,
-        required: true,
+        /* required: true, */
     },
-    ingredients: {
+    ingredients: [{
         name: {
             type:String,
-            required: true,
+            /* required: true, */
         },
         quantity: {
             type: Number,
-            required: true,
+            /* required: true, */
         },
         unit: {
             type: String,
-            required: true,
-        }
-    },
-    ImageUrl: {
+            /* required: true, */
+    }
+    }],
+    imageUrl: {
         type: String,
         default: "/images/fork&knife-icon.png"
     },
-});
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    },
+},
+
+{timestamps: true}
+);
 
 const Recipe = model("Recipe", recipeSchema);
 module.exports = Recipe;

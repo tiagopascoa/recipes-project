@@ -1,0 +1,78 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <h2 class="d-flex justify-content-center my-2">Ingredients</h2>
+
+      <form action="/ingredients/{{id}}/add" method="POST">
+
+        <div class="mb-3">
+          <label for="" class="form-label">Ingredient name</label>
+          <input type="text" class="form-control" style="width:50%" name="name" required/>
+        </div>  
+
+        <div class="mb-3">
+          <label for="" class="form-label">Quantity</label>
+          <input type="text" class="form-control" name="quantity" style="width:25%" required/>
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Unit</label>
+          <div>
+            <select name="unit">
+              <option value="table spoon">Table spoon(s)</option>
+              <option value="desert spoon">Desert spoon(s)</option>
+              <option value="tea spoon">Tea spoon(s)</option>
+              <option value="coffee spoon">Coffee spoon(s)</option>
+              <option value="cup">Cup(s)</option>
+              <option value="pinch">Pinch(es)</option>
+              <option value="cube">Cube(s)</option>
+              <option value="gram">Gram(s)</option>
+              <option value="kilo">Kilo(s)</option>
+              <option value="Ounce">Ounce(s)</option>
+              <option value="mililiter">Milliliter(s)</option>
+              <option value="liter">Liter(s)</option>
+              <option value="package">Package(s)</option>
+              <option value="can">Can(s)</option>
+              <option value="unit">Unit</option>
+              <option value="leaf">Leaf(s)</option>
+              <option value="zest">Zest</option>
+              <option value="skin">Skin(s)</option>
+              <option value="Stalk">Stalk</option>
+              <option value="branch/twig">Branch(s)/Twig(s)</option>
+              <option value="bulb">Bulb(s)</option>
+              <option value="bunch">Bunch</option>
+              <option value="to taste">To taste</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <!-- Button -->
+            <button class="btn btn-success" type="submit">Add Ingredient</button>
+        </div>
+      </form>
+
+      <h4 class="my-2">List:</h4>
+
+      {{#if ingredients}}
+      <ul>
+        {{#each ingredients}}
+        <li>
+          {{name}} {{quantity}} {{unit}} 
+
+          {{!-- delete ingredient --}}
+          <form action=""> 
+            <button type="submit">Delete</button>
+          </form>
+
+        </li>
+        {{/each}}
+      </ul>
+      {{/if}}
+
+      <a href="/preparation/{{id}}/update">Prep. Steps</a>
+
+    </div>
+  </div>
+</div>

@@ -49,7 +49,7 @@ router.post("/signup", fileUpload.single("image"),  async (req, res) => {
     imageUrl: fileUrlOnCloudinary
   });
 
-  res.redirect("user-area");
+  res.redirect("login");
 
 });
 

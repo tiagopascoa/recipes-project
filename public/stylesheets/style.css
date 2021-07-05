@@ -37,3 +37,7 @@
 .teste{
   background-color: gray;
 }
+
+.qnt-unit{
+  display: inline-block;
+}
