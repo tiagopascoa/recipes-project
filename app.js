@@ -18,6 +18,9 @@ const hbs = require("hbs");
 //Added helpers because I want to use the #eq helper
 const helpers = require("handlebars-helpers");
 hbs.registerHelper(helpers());
+hbs.registerHelper(helpers(
+    
+));
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);

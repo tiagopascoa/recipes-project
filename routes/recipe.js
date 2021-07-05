@@ -19,7 +19,7 @@ router.post("/new-recipe", fileUpload.single("image"), async (req, res) => {
     
     let fileUrlOnCloudinary = "";
     if (req.file) {
-        fileUrlOncloudinary = req.file.path;
+        fileUrlOnCloudinary = req.file.path;
     }
 
     const {title, image, dificulty, category, time, user} = req.body;
