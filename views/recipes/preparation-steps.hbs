@@ -5,16 +5,37 @@
       <h2 class="d-flex justify-content-center my-2">Preparation</h2>
 
       <form action="/preparation/{{id}}/update" method="POST">
+
         <div class="mb-3">
-          <label for="" class="form-label">Steps</label>
-          <textarea rows="4" cols="50" class="form-control" name="preparation" required/></textarea>
+          <label for="" class="form-label">Preparation Steps</label>
+          <input type="text" class="form-control" name="step" required/>
         </div>
 
         <div class="control-group">
           <!-- Button -->
-            <button class="btn btn-success" type="submit">Add Recipe</button>
+            <button class="btn btn-success" type="submit">Add Step</button>
         </div>
       </form>
+
+      <h4 class="my-2">List:</h4>
+
+      {{#if preparation}}
+      <ol>
+        {{#each preparation}}
+        <li>
+          {{step}} 
+          {{!-- delete ingredient --}}
+          <form action=""> 
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+        {{/each}}
+      </ol>
+      {{/if}}
+
+    <div>
+      <a href="/">Add Recipe</a>
+    </div>
 
     </div>
   </div>

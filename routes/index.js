@@ -6,6 +6,7 @@ const User = require("../models/User.model");
 
 router.get("/", async (req, res, next) => {
   const recipes = await Recipe.find().populate("user");
+  
   res.render("index", {recipes});
 });
 

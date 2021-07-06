@@ -1,64 +1,70 @@
 <div class="container-fluid">
+
+  <div class="row main-page-row-one">
+    <div class="col-md-4 col-one-main my-5">
+      {{#if loggedInUser}}
+      <h2>Welcome {{loggedInUser}}!</h2>
+      {{else}}
+      <h2>Welcome!</h2>
+      {{/if}}
+      <h6>Feeling hungry?</h6>
+      <h6> We are sure you will find the recipe you are looking for.</h6>
+    </div>
+    <div class="col-md-4 my-5">
+      <div>
+        <h6>Create your own recipe and contribute to OUR RECIPES community.</h6>
+        <div class="create-recipe-btn">
+          <div>
+            {{#if loggedInUser}}
+            <a href="/new-recipe">Create Recipe</a>
+            {{else}}
+            <a href="/signup">Create Recipe</a>
+            {{/if}}
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
   <div class="row">
-    <h1 class="d-flex justify-content-center my-4">All Recipes</h1>
+    {{!-- <h1 class="d-flex justify-content-center my-4">All Recipes</h1> --}}
     {{#each recipes}}
       <div class="col-md-4 d-flex justify-content-center">
         <div class="card card-recipe">
           <div class="card-personal-header my-2">
-            <img
-              class="me-2 ms-2"
-              src="/images/fork&knife-icon.png"
-              width="30"
-              height="30"
-              alt=""
-            />
+            <img class="me-2 ms-3" src="/images/fork&knife-icon.png" width="30" height="30" alt=""/>
             <div>OUR RECIPES</div>
           </div>
           <img src={{imageUrl}} alt="" />
           <div class="card-body">
-            <h3
-              class="card-title d-flex justify-content-center mb-3"
-            >{{title}}</h3>
+            <h3 class="card-title d-flex justify-content-center mb-3">{{title}}</h3>
             <div class="card-specs">
-              <h6 class="card-title"><i class="far fa-clock me-1"></i>{{time}}
-                min</h6>
+              <h6 class="card-title"><i class="far fa-clock me-1"></i>{{time}} min</h6>
               {{#eq category "fish"}}
-                <h6 class="card-title"><i
-                    class="fas fa-fish me-1"
-                  ></i>{{category}}</h6>
+                <h6 class="card-title"><i class="fas fa-fish me-1"></i>{{category}}</h6>
               {{else}}
                 {{#eq category "meat"}}
-                  <h6 class="card-title"><i
-                      class="fas fa-drumstick-bite me-1"
-                    ></i>{{category}}</h6>
+                  <h6 class="card-title"><i class="fas fa-drumstick-bite me-1"></i>{{category}}</h6>
                 {{else}}
                   {{#eq category "desert"}}
-                    <h6 class="card-title"><i
-                        class="fas fa-ice-cream me-1"
-                      ></i>{{category}}</h6>
+                    <h6 class="card-title"><i class="fas fa-ice-cream me-1"></i>{{category}}</h6>
                   {{else}}
                     {{#eq category "vegetarian"}}
-                      <h6 class="card-title"><i
-                          class="fas fa-leaf me-1"
-                        ></i>{{category}}</h6>
+                      <h6 class="card-title"><i class="fas fa-leaf me-1"></i>{{category}}</h6>
                     {{/eq}}
                   {{/eq}}
                 {{/eq}}
               {{/eq}}
               {{#eq dificulty "easy"}}
-                <h6 class="card-title"><i
-                    class="far fa-smile me-1"
-                  ></i>{{dificulty}}</h6>
+                <h6 class="card-title"><i class="far fa-smile me-1"></i>{{dificulty}}</h6>
               {{else}}
                 {{#eq dificulty "medium"}}
-                  <h6 class="card-title"><i
-                      class="far fa-meh me-1"
-                    ></i>{{dificulty}}</h6>
+                  <h6 class="card-title"><i class="far fa-meh me-1"></i>{{dificulty}}</h6>
                 {{else}}
                   {{#eq dificulty "hard"}}
-                    <h6 class="card-title"><i
-                        class="far fa-tired me-1"
-                      ></i>{{dificulty}}</h6>
+                    <h6 class="card-title"><i class="far fa-tired me-1"></i>{{dificulty}}</h6>
                   {{else}}
                   {{/eq}}
                 {{/eq}}
@@ -70,7 +76,7 @@
           </div>
           <div class="view-recipe-btn-container">
               <div class="view-recipe-btn mb-2"> 
-                    <a href="#">View Recipe</a>
+                    <a href="/recipe-page/{{_id}}">View Recipe</a>
               </div>      
           </div>
         </div>

@@ -4,22 +4,19 @@
         <div class="col-md-4">
             <div class="card">
                 <h3 class="card-title text-center">My Profile</h3>
-                <img src="{{imageUrl}}" alt="user profile image" />
+                <img src="{{logged.imageUrl}}" alt="user profile image" />
                 <div class="card-body text-center">
-                    <h5 class="card-title">{{loggedInUser}}</h5>
-                    <p class="card-title">{{email}}</p>
+                    <h5 class="card-title">{{logged.username}}</h5>
+                    <p class="card-title">{{logged.email}}</p>
                     <div class="card-btns">
                         <div class="btn btn-secondary">
                             <a style="color: azure; " href="/user-profile">Edit Profile</a>
                         </div>
-                        {{!-- <div <form action="/drones/{{_id}}/delete" method="POST">
-                            <button class="delete-btn" type="submit" onclick="alertFunction()">Delete</button>
-                            </form>
-                        </div> --}}
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="col-md-4">
             <div class="card">
                 <h3 class="card-title text-center">Favortite Recipes</h3>
@@ -40,10 +37,6 @@
                         <div class="btn btn-secondary">
                             <a style="color: azure; " href="/user-favorite-list">Look for favorites</a>
                         </div>
-                        {{!-- <div <form action="/drones/{{_id}}/delete" method="POST">
-                            <button class="delete-btn" type="submit" onclick="alertFunction()">Delete</button>
-                            </form>
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -68,22 +61,9 @@
                         <div class="btn btn-secondary">
                             <a style="color: azure; " href="/user-recipes-list">Add more Recipes</a>
                         </div>
-                        {{!-- <div <form action="/drones/{{_id}}/delete" method="POST">
-                            <button class="delete-btn" type="submit" onclick="alertFunction()">Delete</button>
-                            </form>
-                        </div> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{{!--
-<ul>
-    <li>{{username}}</li>
-    <li>
-        <div class="user-img">
-            <img src="{{imageUrl}}" alt="" />
-        </div>
-    </li>
-</ul> --}}

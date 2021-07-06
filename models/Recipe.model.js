@@ -17,13 +17,15 @@ const recipeSchema = new Schema({
         type: Number,
         required: true,
     },
-    rating: {
-        type: Number,
-    },
-    preparation: {
-        type: String,
-        /* required: true, */
-    },
+    rating: [
+        Number
+    ],
+    preparation: [{
+        step: {
+            type: String,
+        },
+
+    }],
     ingredients: [{
         name: {
             type:String,
@@ -36,7 +38,7 @@ const recipeSchema = new Schema({
         unit: {
             type: String,
             /* required: true, */
-    }
+        }
     }],
     imageUrl: {
         type: String,

@@ -15,6 +15,10 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  favorites: [{
+    type: Schema.Types.ObjectId,
+    ref: "Recipe",
+  }],
   role: String, //Admin, Reader, Guest, Supervider
   imageUrl: String
 });

@@ -1,0 +1,123 @@
+<div class = "container-fluid">
+    <a href="/">Back</a>
+    <div class="row recipe-page-row-one">
+        <div class="col-md-4 recipepage-img-container">
+            <img src="{{recipeDetail.imageUrl}}" alt="">
+        </div>
+        <div class="col-md-4 ">
+
+            <h2 class="d-flex justify-content-center">{{recipeDetail.title}}</h2>
+
+            <div class="recipe-page-specs d-flex">
+              <h4><i class="far fa-clock me-1"></i>{{recipeDetail.time}}min</h4>
+              {{#eq recipeDetail.category "fish"}}
+                <h4 class="card-title"><i class="fas fa-fish me-1"></i>{{recipeDetail.category}}</h4>
+              {{else}}
+                {{#eq recipeDetail.category "meat"}}
+                  <h4 class="card-title"><i class="fas fa-drumstick-bite me-1"></i>{{recipeDetail.category}}</h4>
+                {{else}}
+                  {{#eq recipeDetail.category "desert"}}
+                    <h4 class="card-title"><i class="fas fa-ice-cream me-1"></i>{{recipeDetail.category}}</h4>
+                  {{else}}
+                    {{#eq recipeDetail.category "vegetarian"}}
+                      <h4 class="card-title"><i class="fas fa-leaf me-1"></i>{{recipeDetail.category}}</h4>
+                    {{/eq}}
+                  {{/eq}}
+                {{/eq}}
+              {{/eq}}
+              {{#eq recipeDetail.dificulty "easy"}}
+                <h4 class="card-title"><i class="far fa-smile me-1"></i>{{recipeDetail.dificulty}}</h4>
+              {{else}}
+                {{#eq recipeDetail.dificulty "medium"}}
+                  <h4 class="card-title"><i class="far fa-meh me-1"></i>{{recipeDetail.dificulty}}</h4>
+                {{else}}
+                  {{#eq recipeDetail.dificulty "hard"}}
+                    <h4 class="card-title"><i class="far fa-tired me-1"></i>{{recipeDetail.dificulty}}</h4>
+                  {{else}}
+                  {{/eq}}
+                {{/eq}}
+              {{/eq}}
+            </div>
+            
+            <div>
+                <h4>rating: {{avRatingRound}} <i class="far fa-star"></i></h4>
+            </div>
+
+            <div class="recipe-page-user">
+              <h4>by: <i class="fas fa-user-circle me-1"></i>{{recipeDetail.user.username}}</h4>
+            </div>
+
+            {{#if loggedInUser}}
+
+            <div class="recipe-page-fav">
+                <form action="/recipe-page/{{recipeDetail._id}}/favorites" method="POST">
+                    <button type="submit">
+                    <i class="far fa-heart"></i>   
+                    Add to favorite list!
+                    </button>
+                </form>
+            </div>
+
+            <div class="recipe-page-rating">
+                <form action="/recipe-page/{{recipeDetail._id}}/rating" method="post">
+                    <div>
+                        <input type="radio" name="rating" value="1" />
+                        <label>1</label>
+
+                        <input type="radio" name="rating" value="2" />
+                        <label>2</label>
+
+                        <input type="radio" name="rating" value="3" />
+                        <label>3</label>
+
+                        <input type="radio" name="rating" value="4" />
+                        <label>4</label>
+
+                        <input type="radio" name="rating" value="5" />
+                        <label>5</label>
+
+                        <button type="submit">
+                            <i class="far fa-star"></i>
+                            Rate this recipe!
+                        </button>
+                        
+                    </div>
+                </form>            
+            </div>
+
+            {{/if}}
+
+        </div>
+    </div>
+
+{{!-- -----------------Row 2------------------ --}}
+
+    <div class="row recipe-page-row-two">
+        <div class="col-md-4">
+            <div>
+                <h4>Ingredients List</h4>
+            </div>
+            <div>
+                <ul>
+                    {{#each recipeDetail.ingredients}}
+                    <li>{{unit}} {{quantity}} {{ingredients.name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-4 ">
+            <div>
+                <h4>Preparation steps</h4>
+            </div>
+            <div>
+                <ol>
+                    {{#each recipeDetail.preparation}}
+                    <li> {{step}} </li>
+                    {{/each}}
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
