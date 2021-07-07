@@ -1,6 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <h1 class="d-flex justify-content-center my-4">{{loggedInUser}} created recipes</h1>
+    <h1 class="d-flex justify-content-center my-4">My Recipes</h1>
+    <h3 class="d-flex justify-content-center mb-4"><a href="">+ Create Recipe</a></h3>
+</a>    
     {{#each createdRecipes}}
       <div class="col-md-4 d-flex justify-content-center">
         <div class="card card-recipe">
@@ -70,8 +72,13 @@
           </div>
           <div class="view-recipe-btn-container">
               <div class="view-recipe-btn mb-2"> 
-                    <a href="#">View Recipe</a>
-              </div>      
+                    <a href="/recipe-page/{{_id}}">View Recipe</a>
+              </div>
+              <div>
+                <form action="/{{id}}/delete-recipe" method="POST">
+                  <button class="delete-recipe-btn" type="submit">Delete Recipe</button>
+                </form> 
+              </div>
           </div>
         </div>
       </div>

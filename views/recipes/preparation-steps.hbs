@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
   <div class="row">
-    <div class="col-md-4 mx-auto">
+    <div class="col-md-4 new-recipe-card mx-auto my-3">
       <h2 class="d-flex justify-content-center my-2">Preparation</h2>
 
       <form action="/preparation/{{id}}/update" method="POST">
@@ -22,19 +22,24 @@
       {{#if preparation}}
       <ol>
         {{#each preparation}}
-        <li>
-          {{step}} 
-          {{!-- delete ingredient --}}
-          <form action=""> 
-            <button type="submit">Delete</button>
-          </form>
+        <li >
+          <div class="d-flex">
+            {{step}} 
+            {{!-- delete step --}}
+            <form action="/preparation/{{id}}/recipe/{{../id}}/delete" method="POST"> 
+              <button class="ms-2 delete-elements-btn" type="submit">Delete</button>
+            </form>
+          </div>
+
         </li>
         {{/each}}
       </ol>
       {{/if}}
 
-    <div>
-      <a href="/">Add Recipe</a>
+    <div class="d-flex justify-content-center mb-2">
+      
+        <a class="btn btn-success" href="/user-recipes-list">Add Recipe</a>
+      
     </div>
 
     </div>

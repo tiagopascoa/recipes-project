@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <h1 class="d-flex justify-content-center my-4">My Favorites</h1>
+    <h1 class="d-flex justify-content-center my-4">Search results</h1>
+    {{#each recipeSearch}}
     
-    {{#each favorites}}
       <div class="col-md-4 d-flex justify-content-center">
         <div class="card card-recipe">
           <div class="card-personal-header my-2">
@@ -24,28 +24,23 @@
               <h6 class="card-title"><i class="far fa-clock me-1"></i>{{time}}
                 min</h6>
               {{#eq category "fish"}}
-                <h6 class="card-title"><i
-                    class="fas fa-fish me-1"
-                  ></i>{{category}}</h6>
+                <h6 class="card-title"><i class="fas fa-fish me-1"></i>{{category}}</h6>
               {{else}}
                 {{#eq category "meat"}}
-                  <h6 class="card-title"><i
-                      class="fas fa-drumstick-bite me-1"
-                    ></i>{{category}}</h6>
+                  <h6 class="card-title"><i class="fas fa-drumstick-bite me-1"></i>{{category}}</h6>
                 {{else}}
                   {{#eq category "desert"}}
-                    <h6 class="card-title"><i
-                        class="fas fa-ice-cream me-1"
-                      ></i>{{category}}</h6>
+                    <h6 class="card-title"><i class="fas fa-ice-cream me-1"></i>{{category}}</h6>
                   {{else}}
                     {{#eq category "vegetarian"}}
-                      <h6 class="card-title"><i
-                          class="fas fa-leaf me-1"
-                        ></i>{{category}}</h6>
+                      <h6 class="card-title"><i class="fas fa-leaf me-1"></i>{{category}}</h6>
                     {{/eq}}
                   {{/eq}}
                 {{/eq}}
               {{/eq}}
+              <h6 class="card-title"><i
+                  class="fas fa-ice-cream me-1"
+                ></i>{{category}}</h6>
               {{#eq dificulty "easy"}}
                 <h6 class="card-title"><i
                     class="far fa-smile me-1"
@@ -70,9 +65,9 @@
             </div>
           </div>
           <div class="view-recipe-btn-container">
-              <div class="view-recipe-btn mb-2"> 
-                    <a href="/recipe-page/{{_id}}">View Recipe</a>
-              </div>
+            <div class="view-recipe-btn mb-2">
+              <a href="/recipe-page/{{_id}}">View Recipe</a>
+            </div>
           </div>
         </div>
       </div>

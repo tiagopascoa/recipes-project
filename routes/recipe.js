@@ -30,7 +30,7 @@ router.post("/new-recipe", fileUpload.single("image"), async (req, res) => {
     
 });
 
-//Ingredients (update, add)
+//Ingredients (update, add, delete)
 router.get("/ingredients/:recipeId/update", async (req, res) => {
 
     const recipeToEdit = await Recipe.findById(req.params.recipeId);
@@ -49,7 +49,15 @@ router.post("/ingredients/:recipeId/add", async (req, res) => {
     res.redirect(`/ingredients/${newIngredient._id}/update`);
 });
 
-//Preparation Steps (update, add)
+router.post("/ingredients/:ingredientId/recipe/:recipeId/delete", async (req, res) => {
+    const deletedIng = await Recipe.findByIdAndUpdate(req.params.recipeId, {
+        $pull: {ingredients: { _id: req.params.ingredientId}}
+    });
+
+    res.redirect(`/ingredients/${deletedIng._id}/update`);
+});
+
+//Preparation Steps (update, add, delete)
 router.get("/preparation/:recipeId/update", async (req, res) => {
 
     const recipeToEdit = await Recipe.findById(req.params.recipeId);
@@ -66,6 +74,15 @@ router.post("/preparation/:recipeId/update", async (req, res) => {
     });
 
     res.redirect(`/preparation/${newStep._id}/update`);
+});
+
+router.post("/preparation/:preparationId/recipe/:recipeId/delete", async (req, res) => {
+
+    const deleteStep = await Recipe.findByIdAndUpdate(req.params.recipeId, {
+        $pull: {preparation: { _id: req.params.preparationId}}
+    });
+
+    res.redirect(`/preparation/${deleteStep._id}/update`);
 });
 
 //Recipe-page
@@ -92,6 +109,7 @@ router.post("/recipe-page/:recipeId/rating", async (req, res) => {
     res.redirect(`/recipe-page/${recipeDetail._id}`);    
 });
 
+
 //Favorites
 router.post("/recipe-page/:recipeId/favorites", async (req, res) => {
 
@@ -101,11 +119,48 @@ router.post("/recipe-page/:recipeId/favorites", async (req, res) => {
      $push: { favorites: recipeDetail}
     });
 
+
     res.redirect(`/recipe-page/${recipeDetail._id}`);
 });
 
-//Favorite List
 
+//Search by category
+router.get("/category-desert", async (req, res) => {
+    const categoryDesert = await Recipe.find({ category: "desert"});
+    res.render("recipes/category-desert", {categoryDesert});
+});
 
+router.get("/category-meat", async (req, res) => {
+    const categoryMeat = await Recipe.find({ category: "meat"});
+    res.render("recipes/category-meat", {categoryMeat});
+});
+
+router.get("/category-fish", async (req, res) => {
+    const categoryFish = await Recipe.find({ category: "fish"});
+    res.render("recipes/category-fish", {categoryFish});
+});
+
+router.get("/category-vegetarian", async (req, res) => {
+    const categoryVegetarian = await Recipe.find({ category: "vegetarian"});
+    res.render("recipes/category-vegetarian", {categoryVegetarian});
+});
+
+//Search-bar
+router.get("/search", async (req, res) => {
+
+    const search = req.query.search;
+    console.log(search);
+
+    const recipeSearch = await Recipe.find({
+        title: {
+          $regex: '.*' + search + '.*',
+          $options: 'i'
+        }
+      });
+
+    console.log(recipeSearch);
+
+    res.render("recipes/search", {recipeSearch});
+});
 
 module.exports = router;

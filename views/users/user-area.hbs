@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <h2 class="d-flex justify-content-center my-2">User area</h2>
+        <h1 class="d-flex justify-content-center my-4">User area</h1>
         <div class="col-md-4">
             <div class="card">
                 <h3 class="card-title text-center">My Profile</h3>
@@ -10,7 +10,7 @@
                     <p class="card-title">{{logged.email}}</p>
                     <div class="card-btns">
                         <div class="btn btn-secondary">
-                            <a style="color: azure; " href="/user-profile">Edit Profile</a>
+                            <a style="color: azure; " href="/user-profile/{{logged._id}}">Edit Profile</a>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
         <div class="col-md-4">
             <div class="card">
                 <h3 class="card-title text-center">Favortite Recipes</h3>
-                <img src="{{imageUrl}}" alt="user profile image" />
+                <img src="{{logged.imageUrl}}" alt="user profile image" />
                 <div class="card-body text-center">
                     <ul>
                         <li>
@@ -35,7 +35,10 @@
                     </ul>
                     <div class="card-btns">
                         <div class="btn btn-secondary">
-                            <a style="color: azure; " href="/user-favorite-list">Look for favorites</a>
+                            <form action="/user-favorite-list" method="get">
+                                <button type="submit">fav</button>
+                            </form>
+                            <a style="color: azure; " href="/user-favorite-list">View favorites</a>
                         </div>
                     </div>
                 </div>
@@ -59,7 +62,7 @@
                     </ul>
                     <div class="card-btns">
                         <div class="btn btn-secondary">
-                            <a style="color: azure; " href="/user-recipes-list">Add more Recipes</a>
+                            <a style="color: azure; " href="/user-recipes-list">View/Add/Delete</a>
                         </div>
                     </div>
                 </div>

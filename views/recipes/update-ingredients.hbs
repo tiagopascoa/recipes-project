@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
   <div class="row">
-    <div class="col-md-4 mx-auto">
+    <div class="col-md-4 new-recipe-card mx-auto my-3">
       <h2 class="d-flex justify-content-center my-2">Ingredients</h2>
 
       <form action="/ingredients/{{id}}/add" method="POST">
@@ -59,19 +59,21 @@
       <ul>
         {{#each ingredients}}
         <li>
-          {{name}} {{quantity}} {{unit}} 
-
+          <div class="d-flex">
+            {{quantity}} {{unit}} {{name}}  
           {{!-- delete ingredient --}}
-          <form action=""> 
-            <button type="submit">Delete</button>
-          </form>
-
+            <form action="/ingredients/{{id}}/recipe/{{../id}}/delete" method="POST"> 
+              <button class="ms-2 delete-elements-btn" type="submit">Delete</button>
+            </form>
+          </div>
         </li>
         {{/each}}
       </ul>
       {{/if}}
 
-      <a href="/preparation/{{id}}/update">Prep. Steps</a>
+      <div class="d-flex justify-content-center mb-2">
+        <a class="btn btn-success" href="/preparation/{{id}}/update">Prep. Steps <i class="fas fa-arrow-right"></i></a>
+      </div>
 
     </div>
   </div>
