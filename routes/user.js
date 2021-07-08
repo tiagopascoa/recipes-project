@@ -3,6 +3,13 @@ const User = require("../models/User.model");
 const Recipe = require("../models/Recipe.model");
 const fileUpload = require("../config/cloudinary");
 
+function requireAdmin(req, res, next){
+    if (req.session.currentUser && req.session.currentUser.role === "admin") {
+        next();
+    } else {
+        res.redirect("/login");
+    }
+}
 
 //User Area
 router.get("/user-area/", async (req, res) => {
@@ -60,6 +67,28 @@ router.get("/user-recipes-list", async (req, res)=>{
 router.post("/:recipeId/delete-recipe", async (req, res) => {
     await Recipe.findByIdAndDelete(req.params.recipeId);
     res.redirect("/user-recipes-list");
+});
+
+//Backoffice
+
+router.get("/backoffice", requireAdmin, async (req, res) => {
+    const allRecipes = await Recipe.find();
+    
+    const allUsers = await User.find();
+
+    res.render("users/backoffice", {allRecipes, allUsers});
+});
+
+router.post("/backoffice/:userId/deleteUser", async (req, res) => {
+
+    await User.findByIdAndDelete(req.params.userId);
+    res.redirect("/backoffice");
+});
+
+router.post("/backoffice/:recipeId/deleteRecipe", async (req, res) => {
+
+    await Recipe.findByIdAndDelete(req.params.recipeId);
+    res.redirect("/backoffice");
 });
 
 module.exports = router;

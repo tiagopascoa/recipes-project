@@ -1,48 +1,53 @@
-<div class="container-fluid">
-    <div class="row">
-        <h1 class="d-flex justify-content-center my-4">User area</h1>
-        <div class="col-md-4">
-            <div class="card">
-                <h3 class="card-title text-center">My Profile</h3>
-                <img src="{{logged.imageUrl}}" alt="user profile image" />
-                <div class="card-body text-center">
-                    <h5 class="card-title">{{logged.username}}</h5>
-                    <p class="card-title">{{logged.email}}</p>
-                    <div class="card-btns">
-                        <div class="btn btn-secondary">
-                            <a style="color: azure; " href="/user-profile/{{logged._id}}">Edit Profile</a>
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="d-flex justify-content-center my-4">Welcome {{logged.username}}!</h1>
+
+            <div class="col-md-4">
+                <div class="card card-user-area">
+                    <h3 class="card-title text-center mt-2">Favortites</h3>
+                    <div class="img-size">
+                        <img height="245px" src="/images/bookmark-favorites-black.png" alt="Favorites bookmark">
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="card-btns">
+                            <div class="btn btn-success">
+                                <a style="color: azure; " href="/user-favorite-list">Look for favorites</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="card">
-                <h3 class="card-title text-center">Favortite Recipes</h3> 
-                    <i class="far fa-heart fa-10x"></i>
-                <div class="card-body text-center">
-                    <div class="card-btns">
-                        <div class="btn btn-secondary">
-                            <a style="color: azure; " href="/user-favorite-list">View favorites</a>
+            <div class="col-md-4">
+                <div class="card card-user-area">
+                    <h3 class="card-title text-center mt-2">My Profile</h3>
+                    <div>
+                        <img class="img-size" src="{{logged.imageUrl}}" alt="user profile image" />
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="card-btns">
+                            <div class="btn btn-secondary">
+                                <a style="color: azure; " href="/user-profile/{{logged._id}}">Edit Profile</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="card">
-                <h3 class="card-title text-center">My Own Recipes</h3>
-                    <img src="{{imageUrl}}" alt="user profile image" />
-                <div class="card-body text-center">
-                    <div class="card-btns">
-                        <div class="btn btn-secondary">
-                            <a style="color: azure; " href="/user-recipes-list">View/Add/Delete</a>
+            <div class="col-md-4">
+                <div class="card card-user-area">
+                    <h3 class="card-title text-center mt-2">My Own Recipes</h3>
+                    <div class="img-size">
+                        <img height="245px" src="/images/add-new-recipe-icon-black.png" alt="Add new recipe image">
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="card-btns">
+                            <div class="btn btn-success btn-position">
+                                <a style="color: azure; " href="/user-recipes-list">Add more Recipes</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

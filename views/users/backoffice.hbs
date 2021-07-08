@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <h1 class="d-flex justify-content-center my-4">Back-office</h1>
+        
+        <div class="col-md-4 backoffice-cards me-2">
+            <h4 class="d-flex justify-content-center">Recipes</h4>
+            <ul>
+                {{#each allRecipes}}
+                <li>
+                    <div class="d-flex">
+                        {{title}}
+                        <form action="/backoffice/{{id}}/deleteRecipe" method="POST"> 
+                            <button class="ms-2 delete-elements-btn" type="submit">Delete</button>
+                        </form>                    
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        
+        <div class="col-md-4 backoffice-cards ms-2">
+            <h4 class="d-flex justify-content-center">Users</h4>
+            <ul>
+                {{#each allUsers}}
+                <li>
+                    <div class="d-flex">
+                        {{username}}
+                        <form action="/backoffice/{{_id}}/deleteUser" method="POST"> 
+                            <button class="ms-2 delete-elements-btn" type="submit">Delete</button>
+                        </form>                    
+                    </div>                    
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>

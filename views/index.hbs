@@ -12,16 +12,14 @@
     </div>
     <div class="col-md-4 my-5">
       <div>
+        {{#if loggedInUser}}
+        <h6><a href="/new-recipe">Create</a> your own recipe and contribute to OUR RECIPES community.</h6>
+        <h6>Access your <a href="/user-area">User Area</a> and get inspired by your Favorite List</h6>
+        {{else}}
         <h6>Create your own recipe and contribute to OUR RECIPES community.</h6>
-        <div class="create-recipe-btn">
-          <div>
-            {{#if loggedInUser}}
-            <a href="/new-recipe">Create Recipe</a>
-            {{else}}
-            <a href="/signup">Create Recipe</a>
-            {{/if}}
-            
-          </div>
+        <h6><a href="/login">Create Recipe</a></h6>
+        <h6>Not part of the community yet? <a href="/signup">Sign up here! </a></h6>         
+        {{/if}}
         </div>
       </div>
       

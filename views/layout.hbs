@@ -51,8 +51,13 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/user-area">
                     <i class="fas fa-user-circle"></i>
-                    {{loggedInUser}} | User Area</a>
+                    {{loggedInUser}}</a>
                 </li>
+                {{!-- {{#eq req.session.currentUser.role "admin"}} --}}
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/backoffice">Backoffice</a>         
+                </li>
+                {{!-- {{/eq}} --}}
                 <li class="nav-item d-flex align-items-center">
                     <form action="/logout" method="POST">
                         <button class="nav-link logout-btn" type="submit">Logout</button>
@@ -70,10 +75,8 @@
         </div>
       </nav>
 
-
-
       {{{body}}}
-{{!--       <footer>
+{{!--  <footer>
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12 footer-div">
