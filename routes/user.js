@@ -59,7 +59,7 @@ router.get("/user-favorite-list", async (req, res) => {
 
 //User Recipes List
 router.get("/user-recipes-list", async (req, res)=>{
-    const createdRecipes = await Recipe.find({ user: req.session.currentUser});
+    const createdRecipes = await Recipe.find({ user: req.session.currentUser}).populate("user");
     res.render("users/user-recipes-list", {createdRecipes});
 });
 

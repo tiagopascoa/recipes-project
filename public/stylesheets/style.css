@@ -1,5 +1,6 @@
 body{
   background-color: #f8f9f9;
+  
 }
 
 /* Navbar */
@@ -109,7 +110,7 @@ body{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-/* Recipe page */
+/* RECIPE PAGE */
 
 .recipe-page-row-one{
   justify-content: space-evenly;
@@ -139,9 +140,6 @@ body{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.create-recipe-btn{
-}
-
 .fav-btn{
   all: unset;
 }
@@ -164,8 +162,12 @@ color: yellow;
   justify-content: space-between;
 }
 
+.fav-rat-text {
+  font-size: 1.2rem;
+}
 
-/* New recipe */
+
+/* NEW RECIPE */
 
 .new-recipe-card{
   background-color: white;
@@ -187,7 +189,7 @@ color: yellow;
 }
 
 
-/* Backoffice */
+/* BACKOFFICE */
 .backoffice-cards{
   background-color: white;
   border-radius: 0.5rem; 
@@ -199,7 +201,8 @@ color: yellow;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-/* User area */
+
+/* USER AREA */
 
 .card-user-area{
   display: flex;
@@ -215,9 +218,9 @@ color: yellow;
   margin: 1rem 0;  
 }
 
-.profile-new-recipe-link a{
+/* .profile-new-recipe-link a{
   color: green;
-}
+} */
 
 .delete-recipe-btn {
   all: unset;
@@ -235,4 +238,23 @@ color: yellow;
 .view-recipe-btn-container{
   display: flex;
   justify-content: space-evenly;
+}
+
+.btn-success{
+  background-color: green !important;
+}
+
+.btn-delete{
+  background-color: red;
+  color: white;
+
+}
+
+.btn a{
+  color: white;
+  text-decoration: none;
+}
+
+.not-found{
+  width:50%;
 }

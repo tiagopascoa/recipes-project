@@ -10,7 +10,7 @@ router.get("/new-recipe", (req, res) => {
 
 router.post("/new-recipe", fileUpload.single("image"), async (req, res) => {
     
-    let fileUrlOnCloudinary = "";
+    let fileUrlOnCloudinary = "/images/no-product-image.png";
     if (req.file) {
         fileUrlOnCloudinary = req.file.path;
     }
@@ -114,12 +114,26 @@ router.post("/recipe-page/:recipeId/favorites", async (req, res) => {
 
     const recipeDetail = await Recipe.findById(req.params.recipeId);
 
+
     await User.findByIdAndUpdate(req.session.currentUser._id, {
-     $push: { favorites: recipeDetail}
+     $addToSet: { favorites: recipeDetail}
     });
 
     res.redirect(`/recipe-page/${recipeDetail._id}`);
 });
+
+router.post("/user-favorite-list/:recipeId/remove", async (req, res) => {
+
+    const recipeDetail = await Recipe.findById(req.params.recipeId);
+
+    await User.findByIdAndUpdate(req.session.currentUser._id, {
+     $pull: { favorites: recipeDetail._id }
+    });
+
+    res.redirect("/");
+});
+
+
 
 
 

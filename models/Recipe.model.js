@@ -42,7 +42,7 @@ const recipeSchema = new Schema({
     }],
     imageUrl: {
         type: String,
-        default: "/images/fork&knife-icon.png"
+        default: "/images/no-product-image.png"
     },
     user: {
         type: Schema.Types.ObjectId,

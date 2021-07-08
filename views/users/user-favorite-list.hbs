@@ -1,7 +1,8 @@
 <div class="container-fluid">
   <div class="row">
     <h1 class="d-flex justify-content-center my-4">My Favorites</h1>
-    
+
+    {{#if favorites}} 
     {{#each favorites}}
       <div class="col-md-4 d-flex justify-content-center">
         <div class="card card-recipe">
@@ -70,12 +71,23 @@
             </div>
           </div>
           <div class="view-recipe-btn-container">
-              <div class="view-recipe-btn mb-2"> 
+              <div class="btn btn-success mb-2"> 
                     <a href="/recipe-page/{{_id}}">View Recipe</a>
               </div>
+              <div>
+                <form action="/user-favorite-list/{{_id}}/remove" method="POST">
+                  <button class="btn btn-delete" type="submit">Remove</button>
+                </form> 
+              </div>
           </div>
+
         </div>
       </div>
     {{/each}}
+    {{else}}
+    <div class="col-md-12">
+      <h6 class="d-flex justify-content-center mt-5">Seems that you don't have any favorites yet. Tag some recipe as favorite to view the list!</h6>
+    </div>
+    {{/if}}
   </div>
 </div>

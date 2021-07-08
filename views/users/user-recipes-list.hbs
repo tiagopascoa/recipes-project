@@ -2,7 +2,8 @@
   <div class="row">
     <h1 class="d-flex justify-content-center my-4">My Recipes</h1>
     <h3 class="d-flex justify-content-center mb-4 profile-new-recipe-link"><a href="/new-recipe">+ Create Recipe</a></h3>
-</a>    
+</a> 
+    {{#if createdRecipes}}
     {{#each createdRecipes}}
       <div class="col-md-4 d-flex justify-content-center">
         <div class="card card-recipe">
@@ -71,17 +72,22 @@
             </div>
           </div>
           <div class="view-recipe-btn-container mb-2">
-              <div class="view-recipe-btn"> 
+              <div class="btn btn-success"> 
                     <a href="/recipe-page/{{_id}}">View Recipe</a>
               </div>
               <div>
                 <form action="/{{id}}/delete-recipe" method="POST">
-                  <button class="delete-recipe-btn" type="submit">Delete Recipe</button>
+                  <button class="btn btn-delete" type="submit">Delete Recipe</button>
                 </form> 
               </div>
           </div>
         </div>
       </div>
     {{/each}}
+    {{else}}
+    <div class="col-md-12">
+      <h6 class="d-flex justify-content-center mt-5">Create your first recipe to view the list!</h6>
+    </div>
+    {{/if}}
   </div>
 </div>

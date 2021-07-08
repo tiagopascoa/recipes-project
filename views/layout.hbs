@@ -53,11 +53,11 @@
                     <i class="fas fa-user-circle"></i>
                     {{loggedInUser}}</a>
                 </li>
-                {{!-- {{#eq req.session.currentUser.role "admin"}} --}}
+                {{#eq userRole "admin"}} {{!-- Only admin access --}}
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/backoffice">Backoffice</a>         
                 </li>
-                {{!-- {{/eq}} --}}
+                {{/eq}}
                 <li class="nav-item d-flex align-items-center">
                     <form action="/logout" method="POST">
                         <button class="nav-link logout-btn" type="submit">Logout</button>
@@ -76,6 +76,13 @@
       </nav>
 
       {{{body}}}
+
+      
+{{!--    <footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+      <span class="text-muted">Place sticky footer content here.</span>
+   </div>
+   </footer> --}}
 {{!--  <footer>
         <div class="container-fluid">
           <div class="row">

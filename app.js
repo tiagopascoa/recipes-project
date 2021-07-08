@@ -53,9 +53,7 @@ app.use(
 function getCurrentLoggedUser(req, res, next) {
     if(req.session && req.session.currentUser){
         app.locals.loggedInUser = req.session.currentUser.username;
-/*         if(req.session.currentUser.role === "admin"){
-            app.locals.loggedRoleAdmin = req.session.currentUser.role;
-        } */
+        app.locals.userRole = req.session.currentUser.role; /* important to admin access */
     } 
     else {
         app.locals.loggedInUser = "";
