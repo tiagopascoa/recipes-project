@@ -1,6 +1,6 @@
 # Our Recipes
 
-""Our Recipes" is a full-stack project developed during [Ironhack's](https://www.ironhack.com/) Web Development course  (module 2) where the goal was to apply the backend concepts learned during that period.
+"Our Recipes" is a full-stack project developed during [Ironhack's](https://www.ironhack.com/) Web Development course  (module 2) where the goal was to apply the backend concepts learned during that period.
 
 ### Tech
 - Node.Js
