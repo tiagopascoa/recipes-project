@@ -5,19 +5,20 @@
 
       <form action="/user-profile/{{loggedUser._id}}/update" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Profile picture</label>
+        <label for="profileImageUpdate" class="form-label">Profile picture</label>
          {{!-- How can we render an image from cloudinary?? --}}
-        <input type="file" class="form-control" id="formGroupExampleInput2" placeholder="" name="image">
+        <input type="file" class="form-control" id="profileImageUpdate" placeholder="" name="image">
+        <label for="profileImageUpdate" class="form-label">(Please update a new picture!)</label>
       </div>
 
       <div class="mb-3">
-        <label for="formGroupExampleInput" class="form-label">Username</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="username" value="{{loggedUser.username}}" required>
+        <label for="usernameUpdate" class="form-label">Username</label>
+        <input type="text" class="form-control" id="usernameUpdate" placeholder="" name="username" value="{{loggedUser.username}}" required>
         
       </div>
       <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Email</label>
-        <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="" name="email" value="{{loggedUser.email}}" required>
+        <label for="emailUpdate" class="form-label">Email</label>
+        <input type="email" class="form-control" id="emailUpdate" placeholder="" name="email" value="{{loggedUser.email}}" required>
         
       </div>
       <div class="control-group">

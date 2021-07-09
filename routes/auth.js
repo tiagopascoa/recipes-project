@@ -9,7 +9,7 @@ router.get("/signup", (req, res) => {
 
 router.post("/signup", fileUpload.single("image"),  async (req, res) => {
 
- let fileUrlOnCloudinary = "";
+ let fileUrlOnCloudinary = "/images/default-user-img.png";
   if (req.file) {
     fileUrlOnCloudinary = req.file.path;
   }

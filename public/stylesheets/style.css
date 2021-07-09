@@ -254,6 +254,10 @@ color: yellow;
   color: white;
 }
 
+.btn-remove{
+  width: 6.5rem;
+}
+
 .btn-own-recipes{
   width: 5rem;
 }
@@ -265,4 +269,12 @@ color: yellow;
 
 .not-found{
   width:50%;
+}
+
+#fav-on-click{
+  display: none;
+}
+
+#rat-on-click{
+  display: none;
 }

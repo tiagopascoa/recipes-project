@@ -10,14 +10,15 @@
         </div>
         
         <div class="mb-3">
-          <label for="" class="form-label">Image (optional)</label>
-          <input type="file" class="form-control" id="" placeholder="" name="image">
+          <label for="recipeImageUpdate" class="form-label">Image</label>
+          <input type="file" class="form-control" id="recipeImageUpdate" placeholder="" name="image">
+          <label for="recipeImageUpdate" class="form-label">(Please update a new image!)</label>
         </div>        
 
         <div class="mb-3">
-          <label for="" class="form-label">Dificulty</label>
+          <label for="dificultyUpdate" class="form-label">Dificulty</label>
           <div>
-          <select name="dificulty" id="">
+          <select name="dificulty" id="dificultyUpdate">
            
             <option value="hard" {{#eq dificulty "hard"}} selected {{/eq}}>Hard</option>
             <option value="medium" {{#eq dificulty "medium"}} selected {{/eq}}>Medium</option>

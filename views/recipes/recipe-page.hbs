@@ -68,17 +68,16 @@
         </div>
 
         {{#if loggedInUser}}
-
+          
+          
           <div class="recipe-page-fav me-2 ms-2">
-            <form
-              action="/recipe-page/{{recipeDetail._id}}/favorites"
-              method="POST"
-            >
-              <button class="fav-btn" onmouseover="changeFavClass()" onmouseout="changeFavClass2()" type="submit">
+            <form action="/recipe-page/{{recipeDetail._id}}/favorites" method="POST">
+              <button class="fav-btn" onclick="displayClickedMessageFav()" onmouseover="changeFavClass()" onmouseout="changeFavClass2()" type="submit">
                 <i id="heart" class="far fa-heart"></i>
                 <span class="fav-rat-text">Add to favorite list!</span>
               </button>
             </form>
+            <h6 id="fav-on-click">Added to favorites!</h6>
           </div>
 
           <div class="recipe-page-rating me-2 ms-2">
@@ -102,10 +101,11 @@
                 <input type="radio" name="rating" value="5" />
                 <label>5</label>
 
-                <button class="rating-btn" onmouseover="changeRatingClass()" onmouseout="changeRatingClass2()" type="submit">
+                <button class="rating-btn" onclick="displayClickedMessageRat()" onmouseover="changeRatingClass()" onmouseout="changeRatingClass2()" type="submit">
                   <i id="star" class="far fa-star"></i>
-                  <span class="fav-rat-text">Rate this recipe!</span> 
+                  <span class="fav-rat-text">Rate this recipe!</span>           
                 </button>
+                <h6 id="rat-on-click">Rating updated!</h6>
 
               </div>
             </form>

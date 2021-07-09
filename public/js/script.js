@@ -20,3 +20,10 @@ function changeFavClass(){
  function changeFavClass2() {
   document.querySelector("#heart").style.fontWeight = 400;
 }
+
+function displayClickedMessageFav() {
+  const button = document.getElementById("fav-on-click").style.display = "block";
+}
+function displayClickedMessageRat() {
+  const button = document.getElementById("rat-on-click").style.display = "block";
+}

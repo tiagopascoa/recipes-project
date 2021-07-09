@@ -9,7 +9,7 @@ router.get("/new-recipe", (req, res) => {
 });
 
 router.post("/new-recipe", fileUpload.single("image"), async (req, res) => {
-    let fileUrlOnCloudinary = "/images/no-product-image.png";
+    let fileUrlOnCloudinary = "/images/default-no-recipe.png";
     if (req.file) {
         fileUrlOnCloudinary = req.file.path;
     }
@@ -92,7 +92,7 @@ router.post("/recipe/:recipeId/update-recipe", fileUpload.single("image"), async
     if (req.file) {
         fileUrlOnCloudinary = req.file.path;
     }
-    
+
     const {title, image, dificulty, category, time, user} = req.body;
 
     
@@ -116,6 +116,20 @@ router.get("/recipe-page/:recipeId", async (req, res) => {
     const avRating = (recipeDetail.rating.reduce((a, b) => a + b, 0)) / (recipeDetail.rating.length);
 
     const avRatingRound = Math.round((avRating + Number.EPSILON) * 10) / 10;
+    
+    /* Hidding add to favorites after click */
+    /*     const userDetail = await User.findById(req.session.currentUser._id);
+    let counter = false
+    for (let i = 0; i<userDetail.favorites.length; i++){
+        if (req.params.recipeId === userDetail.favorites[i]){
+            let counter = true
+        }
+    }
+    if (counter){
+        res.render("recipes/recipe-page", {recipeDetail, avRatingRound, counter});    
+    } else {
+        res.render("recipes/recipe-page", {recipeDetail, avRatingRound});
+    } */
 
     res.render("recipes/recipe-page", {recipeDetail, avRatingRound});
 });
@@ -149,7 +163,7 @@ router.post("/user-favorite-list/:recipeId/remove", async (req, res) => {
      $pull: { favorites: recipeDetail._id }
     });
 
-    res.redirect("/");
+    res.redirect("/user-favorite-list");
 });
 
 
