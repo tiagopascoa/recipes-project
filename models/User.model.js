@@ -19,8 +19,11 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Recipe",
   }],
+  imageUrl: {
+    type: String,
+    default: "/images/default-user-img.png"
+},
   role: String, //Admin, Reader, Guest, Supervider
-  imageUrl: String
 });
 
 const User = model("User", userSchema);

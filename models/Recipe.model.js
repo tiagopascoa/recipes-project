@@ -42,7 +42,7 @@ const recipeSchema = new Schema({
     }],
     imageUrl: {
         type: String,
-        default: "/images/no-product-image.png"
+        default: "/images/default-no-recipe.png"
     },
     user: {
         type: Schema.Types.ObjectId,

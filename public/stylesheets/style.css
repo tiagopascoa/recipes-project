@@ -247,7 +247,15 @@ color: yellow;
 .btn-delete{
   background-color: red;
   color: white;
+}
 
+.btn-update{
+  background-color: blue;
+  color: white;
+}
+
+.btn-own-recipes{
+  width: 5rem;
 }
 
 .btn a{

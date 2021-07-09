@@ -9,7 +9,6 @@ router.get("/new-recipe", (req, res) => {
 });
 
 router.post("/new-recipe", fileUpload.single("image"), async (req, res) => {
-    
     let fileUrlOnCloudinary = "/images/no-product-image.png";
     if (req.file) {
         fileUrlOnCloudinary = req.file.path;
@@ -26,20 +25,17 @@ router.post("/new-recipe", fileUpload.single("image"), async (req, res) => {
         user: req.session.currentUser
     });
 
-    res.redirect(`/ingredients/${newRecipe._id}/update`);
-    
+    res.redirect(`/ingredients/${newRecipe._id}/update`);  
 });
 
 //Ingredients (update, add, delete)
 router.get("/ingredients/:recipeId/update", async (req, res) => {
-
     const recipeToEdit = await Recipe.findById(req.params.recipeId);
 
     res.render("recipes/update-ingredients", recipeToEdit);
 });
 
-router.post("/ingredients/:recipeId/add", async (req, res) => {
-    
+router.post("/ingredients/:recipeId/add", async (req, res) => {   
     const {name, quantity, unit} = req.body;
 
     const newIngredient = await Recipe.findByIdAndUpdate(req.params.recipeId, {
@@ -59,14 +55,12 @@ router.post("/ingredients/:ingredientId/recipe/:recipeId/delete", async (req, re
 
 //Preparation Steps (update, add, delete)
 router.get("/preparation/:recipeId/update", async (req, res) => {
-
     const recipeToEdit = await Recipe.findById(req.params.recipeId);
 
     res.render("recipes/preparation-steps", recipeToEdit);
 });
 
 router.post("/preparation/:recipeId/update", async (req, res) => {
-
     const  {step} = req.body;
 
     const newStep = await Recipe.findByIdAndUpdate(req.params.recipeId, {
@@ -77,7 +71,6 @@ router.post("/preparation/:recipeId/update", async (req, res) => {
 });
 
 router.post("/preparation/:preparationId/recipe/:recipeId/delete", async (req, res) => {
-
     const deleteStep = await Recipe.findByIdAndUpdate(req.params.recipeId, {
         $pull: {preparation: { _id: req.params.preparationId}}
     });
@@ -85,9 +78,39 @@ router.post("/preparation/:preparationId/recipe/:recipeId/delete", async (req, r
     res.redirect(`/preparation/${deleteStep._id}/update`);
 });
 
+
+/* Recipe update */
+router.get("/:recipeId/update", async (req, res) => {
+
+    const updateRecipe = await Recipe.findById(req.params.recipeId);
+
+    res.render("recipes/update-recipe", updateRecipe);
+});
+
+router.post("/recipe/:recipeId/update-recipe", fileUpload.single("image"), async (req, res) => {
+    let fileUrlOnCloudinary = "/images/default-no-recipe.png";
+    if (req.file) {
+        fileUrlOnCloudinary = req.file.path;
+    }
+    
+    const {title, image, dificulty, category, time, user} = req.body;
+
+    
+    await Recipe.findByIdAndUpdate(req.params.recipeId, {
+        title,
+        imageUrl: fileUrlOnCloudinary,
+        dificulty,
+        category,
+        time,
+        user: req.session.currentUser
+    });
+
+    res.redirect(`/ingredients/${req.params.recipeId}/update`);
+});
+
+
 //Recipe-page
 router.get("/recipe-page/:recipeId", async (req, res) => {
-
     const recipeDetail = await Recipe.findById(req.params.recipeId).populate("user");
 
     const avRating = (recipeDetail.rating.reduce((a, b) => a + b, 0)) / (recipeDetail.rating.length);
@@ -99,7 +122,6 @@ router.get("/recipe-page/:recipeId", async (req, res) => {
 
 //Rating
 router.post("/recipe-page/:recipeId/rating", async (req, res) => {
-
     const {rating} = req.body;
 
     const recipeDetail = await Recipe.findByIdAndUpdate(req.params.recipeId, {
@@ -111,9 +133,7 @@ router.post("/recipe-page/:recipeId/rating", async (req, res) => {
 
 //Favorites
 router.post("/recipe-page/:recipeId/favorites", async (req, res) => {
-
     const recipeDetail = await Recipe.findById(req.params.recipeId);
-
 
     await User.findByIdAndUpdate(req.session.currentUser._id, {
      $addToSet: { favorites: recipeDetail}
@@ -123,7 +143,6 @@ router.post("/recipe-page/:recipeId/favorites", async (req, res) => {
 });
 
 router.post("/user-favorite-list/:recipeId/remove", async (req, res) => {
-
     const recipeDetail = await Recipe.findById(req.params.recipeId);
 
     await User.findByIdAndUpdate(req.session.currentUser._id, {
@@ -132,9 +151,6 @@ router.post("/user-favorite-list/:recipeId/remove", async (req, res) => {
 
     res.redirect("/");
 });
-
-
-
 
 
 module.exports = router;

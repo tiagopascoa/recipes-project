@@ -72,12 +72,17 @@
             </div>
           </div>
           <div class="view-recipe-btn-container mb-2">
-              <div class="btn btn-success"> 
-                    <a href="/recipe-page/{{_id}}">View Recipe</a>
+              <div class="btn btn-own-recipes btn-success"> 
+                    <a href="/recipe-page/{{_id}}">View</a>
+              </div>
+              <div>
+                <form action="/{{id}}/update" method="GET">
+                  <button class="btn btn-update" type="submit">Update</button>
+                </form> 
               </div>
               <div>
                 <form action="/{{id}}/delete-recipe" method="POST">
-                  <button class="btn btn-delete" type="submit">Delete Recipe</button>
+                  <button class="btn btn-delete" type="submit">Delete</button>
                 </form> 
               </div>
           </div>
