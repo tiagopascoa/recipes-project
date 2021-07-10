@@ -24,7 +24,7 @@
         {{#each preparation}}
         <li >
           <div class="d-flex">
-            {{step}} 
+            {{step}};
             {{!-- delete step --}}
             <form action="/preparation/{{id}}/recipe/{{../id}}/delete" method="POST"> 
               <button class="ms-2 delete-elements-btn" type="submit">Delete</button>

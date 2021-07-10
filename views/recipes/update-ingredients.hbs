@@ -13,7 +13,7 @@
 
         <div class="mb-3">
           <label for="" class="form-label">Quantity</label>
-          <input type="text" class="form-control" name="quantity" style="width:25%" required/>
+          <input type="text" class="form-control" name="quantity" style="width:25%"/>
         </div>
 
         <div class="mb-3">
@@ -60,7 +60,7 @@
         {{#each ingredients}}
         <li>
           <div class="d-flex">
-            {{quantity}} {{unit}} {{name}}  
+            {{name}}, {{quantity}} {{unit}}.
           {{!-- delete ingredient --}}
             <form action="/ingredients/{{id}}/recipe/{{../id}}/delete" method="POST"> 
               <button class="ms-2 delete-elements-btn" type="submit">Delete</button>
