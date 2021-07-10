@@ -58,7 +58,8 @@
         </div>
 
         <div>
-          <h4 class="me-2 ms-2">rating: {{avRatingRound}} <i class="far fa-star"></i></h4>
+          <h4 class="me-2 ms-2">rating: {{#if recipeDetail.rating}} {{avRatingRound}} <i class="fav-star far fa-star"></i>
+          {{else}} <span class="no-rating-text">(no rating yet!)</span>{{/if}}</h4>
         </div>
 
         <div class="recipe-page-user me-2 ms-2">
