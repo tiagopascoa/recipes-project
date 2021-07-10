@@ -30,7 +30,7 @@ router.get("/search", async (req, res) => {
 
 //Search by category
 router.get("/category-desert", async (req, res) => {
-  const categoryDesert = await Recipe.find({ category: "desert"});
+  const categoryDesert = await Recipe.find({ category: "desert"}).populate("user");
   res.render("recipes/category-desert", {categoryDesert});
 });
 
