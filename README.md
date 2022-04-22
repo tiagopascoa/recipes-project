@@ -19,4 +19,4 @@
 - [Victor Hugo Silva](https://github.com/vhlsslhv)
 
 ### You must try it...
-The project was deployed on [Heroku](https://www.heroku.com/) and is available to play at: https://https://our-recipes-project.herokuapp.com/
+The project was deployed on [Heroku](https://www.heroku.com/) and is available to play at our-recipes-project.herokuapp.com/
